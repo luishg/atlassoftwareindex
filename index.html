@@ -24,7 +24,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script>document.documentElement.classList.replace('no-js','js');</script>
@@ -317,27 +317,27 @@
               automated systems, the need for a neutral, structured, machine-readable
               understanding of software becomes infrastructural — not optional.
             </p>
-
-            <dl class="problem__ledger reveal" data-delay="3">
-              <div class="problem__ledger-row">
-                <dt class="meta">Volume</dt>
-                <dd><p>More software is shipped in a year than any team can review in a decade.</p></dd>
-              </div>
-              <div class="problem__ledger-row">
-                <dt class="meta">Fragmentation</dt>
-                <dd><p>Identities, metadata, and trust models differ between every store, registry, and platform.</p></dd>
-              </div>
-              <div class="problem__ledger-row">
-                <dt class="meta">Opacity</dt>
-                <dd><p>Security, provenance, and lifecycle information sit fragmented behind commercial interfaces.</p></dd>
-              </div>
-              <div class="problem__ledger-row">
-                <dt class="meta">Consumers</dt>
-                <dd><p>Software is increasingly consumed by systems, not just people. Systems need structure, not prose.</p></dd>
-              </div>
-            </dl>
           </div>
         </div>
+
+        <dl class="ledger reveal" data-delay="2">
+          <div class="ledger__cell">
+            <dt class="ledger__label">Volume</dt>
+            <dd>More software is shipped in a year than any team can review in a decade.</dd>
+          </div>
+          <div class="ledger__cell">
+            <dt class="ledger__label">Fragmentation</dt>
+            <dd>Identities, metadata, and trust models differ between every store, registry, and platform.</dd>
+          </div>
+          <div class="ledger__cell">
+            <dt class="ledger__label">Opacity</dt>
+            <dd>Security, provenance, and lifecycle information sit fragmented behind commercial interfaces.</dd>
+          </div>
+          <div class="ledger__cell">
+            <dt class="ledger__label">Consumers</dt>
+            <dd>Software is increasingly consumed by systems, not just people. Systems need structure, not prose.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
@@ -358,120 +358,81 @@
           </p>
         </div>
 
-        <figure class="capability-figure reveal" data-delay="2">
-          <figcaption class="capability-figure__head">
-            <span>Fig. 01 — Atlas, schematic</span>
-            <span>Four planes, one index</span>
-          </figcaption>
-          <div class="capability-figure__body">
-            <svg viewBox="0 0 1120 360" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-              <defs>
-                <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 Z" fill="#8A7552"/>
-                </marker>
-                <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#D4A574" stop-opacity="0.14"/>
-                  <stop offset="100%" stop-color="#D4A574" stop-opacity="0"/>
-                </radialGradient>
-              </defs>
-
-              <!-- central Atlas hub -->
-              <circle cx="560" cy="180" r="110" fill="url(#hubGlow)"/>
-              <circle cx="560" cy="180" r="78" fill="none" stroke="#373A47" stroke-width="1" stroke-dasharray="2 4"/>
-              <circle cx="560" cy="180" r="48" fill="#0E1015" stroke="#D4A574" stroke-width="1.25"/>
-              <line x1="512" y1="180" x2="608" y2="180" stroke="#D4A574" stroke-width="1"/>
-              <circle cx="560" cy="180" r="3.5" fill="#D4A574"/>
-              <text x="560" y="158" text-anchor="middle" font-family="Instrument Serif, serif"
-                    font-size="18" fill="#EEEAE0" letter-spacing="0.08em">ATLAS</text>
-              <text x="560" y="208" text-anchor="middle" font-family="JetBrains Mono, monospace"
-                    font-size="9" fill="#D4A574" letter-spacing="0.16em">THE INDEX</text>
-
-              <!-- Connectors -->
-              <g stroke="#373A47" stroke-width="1">
-                <line x1="210" y1="90" x2="495" y2="155"/>
-                <line x1="210" y1="270" x2="495" y2="205"/>
-                <line x1="910" y1="90" x2="625" y2="155"/>
-                <line x1="910" y1="270" x2="625" y2="205"/>
-              </g>
-
-              <!-- Four capability plates -->
-              <!-- TL: Capability graph -->
-              <g transform="translate(40 40)">
-                <rect width="200" height="110" fill="none" stroke="#262934" stroke-width="1"/>
-                <line x1="0" y1="28" x2="200" y2="28" stroke="#1B1D25"/>
-                <text x="12" y="20" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#D4A574" letter-spacing="0.14em">§ 01 CAPABILITY GRAPH</text>
-                <text x="12" y="52" font-family="Instrument Serif, serif" font-size="17" fill="#EEEAE0">What software does</text>
-                <text x="12" y="75" font-family="Inter, sans-serif" font-size="11" fill="#B3B0A6">Functions · categories · dependencies</text>
-                <text x="12" y="92" font-family="Inter, sans-serif" font-size="11" fill="#B3B0A6">Canonical identity across ecosystems</text>
-              </g>
-
-              <!-- BL: Trust -->
-              <g transform="translate(40 220)">
-                <rect width="200" height="110" fill="none" stroke="#262934" stroke-width="1"/>
-                <line x1="0" y1="28" x2="200" y2="28" stroke="#1B1D25"/>
-                <text x="12" y="20" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#D4A574" letter-spacing="0.14em">§ 02 TRUST &amp; PROVENANCE</text>
-                <text x="12" y="52" font-family="Instrument Serif, serif" font-size="17" fill="#EEEAE0">Whether it can be trusted</text>
-                <text x="12" y="75" font-family="Inter, sans-serif" font-size="11" fill="#B3B0A6">Signals · origin · transparency</text>
-                <text x="12" y="92" font-family="Inter, sans-serif" font-size="11" fill="#B3B0A6">Risk ≠ policy ≠ uncertainty</text>
-              </g>
-
-              <!-- TR: Execution -->
-              <g transform="translate(880 40)">
-                <rect width="200" height="110" fill="none" stroke="#262934" stroke-width="1"/>
-                <line x1="0" y1="28" x2="200" y2="28" stroke="#1B1D25"/>
-                <text x="12" y="20" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#D4A574" letter-spacing="0.14em">§ 03 EXECUTION</text>
-                <text x="12" y="52" font-family="Instrument Serif, serif" font-size="17" fill="#EEEAE0">How it runs</text>
-                <text x="12" y="75" font-family="Inter, sans-serif" font-size="11" fill="#B3B0A6">Install · update · rollback</text>
-                <text x="12" y="92" font-family="Inter, sans-serif" font-size="11" fill="#B3B0A6">Cross-platform continuity</text>
-              </g>
-
-              <!-- BR: Multi-surface -->
-              <g transform="translate(880 220)">
-                <rect width="200" height="110" fill="none" stroke="#262934" stroke-width="1"/>
-                <line x1="0" y1="28" x2="200" y2="28" stroke="#1B1D25"/>
-                <text x="12" y="20" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#D4A574" letter-spacing="0.14em">§ 04 MULTI-SURFACE ACCESS</text>
-                <text x="12" y="52" font-family="Instrument Serif, serif" font-size="17" fill="#EEEAE0">Who consumes it</text>
-                <text x="12" y="75" font-family="Inter, sans-serif" font-size="11" fill="#B3B0A6">Humans · systems · agents</text>
-                <text x="12" y="92" font-family="Inter, sans-serif" font-size="11" fill="#B3B0A6">APIs · interfaces · workflows</text>
-              </g>
-            </svg>
-          </div>
-
-          <div class="capability-grid">
-            <div class="reveal">
-              <h4 data-n="01">Capability graph</h4>
-              <p>Software described by what it does — not only by where it is listed.</p>
+        <figure class="schematic reveal" data-delay="2">
+          <header class="schematic__head">
+            <div class="schematic__title">
+              <span class="schematic__mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle class="outer" cx="12" cy="12" r="9"/><line x1="2" y1="12" x2="22" y2="12"/><circle class="center" cx="12" cy="12" r="1.3"/></svg>
+              </span>
+              <span class="schematic__name">ATLAS</span>
+              <span class="schematic__sub">schematic · four planes, one index</span>
             </div>
-            <div class="reveal" data-delay="1">
-              <h4 data-n="02">Trust &amp; provenance</h4>
-              <p>Explainable signals, verified origins, separated from commercial incentives.</p>
-            </div>
-            <div class="reveal" data-delay="2">
-              <h4 data-n="03">Execution knowledge</h4>
-              <p>How software is obtained, installed, updated, rolled back, and operated across environments.</p>
-            </div>
-            <div class="reveal" data-delay="3">
-              <h4 data-n="04">Multi-surface access</h4>
-              <p>APIs and interfaces for humans, systems, and the agent-driven workflows emerging around them.</p>
-            </div>
-          </div>
+            <span class="schematic__ref">Fig. 01</span>
+          </header>
+
+          <ol class="schematic__planes" role="list">
+            <li class="plane">
+              <header class="plane__head">
+                <span class="plane__n">§ 01</span>
+                <h3 class="plane__title">Capability<br>Graph</h3>
+              </header>
+              <div class="plane__body">
+                <p class="plane__sub">What software does.</p>
+                <ul class="plane__list" role="list">
+                  <li>functions</li>
+                  <li>categories</li>
+                  <li>dependencies</li>
+                  <li>canonical identity</li>
+                </ul>
+              </div>
+            </li>
+            <li class="plane">
+              <header class="plane__head">
+                <span class="plane__n">§ 02</span>
+                <h3 class="plane__title">Trust &amp;<br>Provenance</h3>
+              </header>
+              <div class="plane__body">
+                <p class="plane__sub">Whether it can be trusted.</p>
+                <ul class="plane__list" role="list">
+                  <li>security signals</li>
+                  <li>origin &amp; authorship</li>
+                  <li>explainability</li>
+                  <li>continuity</li>
+                </ul>
+              </div>
+            </li>
+            <li class="plane">
+              <header class="plane__head">
+                <span class="plane__n">§ 03</span>
+                <h3 class="plane__title">Execution<br>Knowledge</h3>
+              </header>
+              <div class="plane__body">
+                <p class="plane__sub">How it runs.</p>
+                <ul class="plane__list" role="list">
+                  <li>install paths</li>
+                  <li>update &amp; rollback</li>
+                  <li>compatibility</li>
+                  <li>lifecycle</li>
+                </ul>
+              </div>
+            </li>
+            <li class="plane">
+              <header class="plane__head">
+                <span class="plane__n">§ 04</span>
+                <h3 class="plane__title">Multi-Surface<br>Access</h3>
+              </header>
+              <div class="plane__body">
+                <p class="plane__sub">Who consumes it.</p>
+                <ul class="plane__list" role="list">
+                  <li>humans</li>
+                  <li>systems</li>
+                  <li>agents</li>
+                  <li>APIs</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
         </figure>
-
-        <div class="negations reveal">
-          <div class="meta negations__label">What Atlas is not</div>
-          <ul class="negations__list" role="list">
-            <li>A consumer marketplace</li>
-            <li>A closed ecosystem</li>
-            <li>An AI wrapper on existing catalogs</li>
-            <li>A replacement for Uptodown</li>
-            <li>A universal package manager</li>
-            <li>A finished product</li>
-          </ul>
-        </div>
       </div>
     </section>
 
@@ -500,31 +461,43 @@
               This is not a thesis in search of a dataset. It is a dataset, an editorial
               practice, and an operation — in search of a more strategic expression.
             </p>
-
-            <dl class="stats reveal" data-delay="2">
-              <div>
-                <dt><em>20+</em> years</dt>
-                <dd>of continuous software distribution</dd>
-              </div>
-              <div>
-                <dt>millions</dt>
-                <dd>of software artifacts indexed, classified, and versioned</dd>
-              </div>
-              <div>
-                <dt>global</dt>
-                <dd>reach across every major platform and every region</dd>
-              </div>
-              <div>
-                <dt>proven</dt>
-                <dd>under real operational load — not in a pitch deck</dd>
-              </div>
-            </dl>
-
-            <p class="foundations__note reveal" data-delay="3">
-              The foundation is already there. <em>Atlas is its public form.</em>
-            </p>
           </div>
         </div>
+
+        <dl class="stats reveal" data-delay="2">
+          <div class="stats__cell">
+            <dt class="stats__value">
+              <span class="stats__num"><em>20+</em></span>
+              <span class="stats__unit">years</span>
+            </dt>
+            <dd>of continuous software distribution, at global scale.</dd>
+          </div>
+          <div class="stats__cell">
+            <dt class="stats__value">
+              <span class="stats__num"><em>millions</em></span>
+              <span class="stats__unit">of artifacts</span>
+            </dt>
+            <dd>indexed, classified, and versioned — not as listings, as entities.</dd>
+          </div>
+          <div class="stats__cell">
+            <dt class="stats__value">
+              <span class="stats__num"><em>global</em></span>
+              <span class="stats__unit">reach</span>
+            </dt>
+            <dd>across every major platform and every region in the world.</dd>
+          </div>
+          <div class="stats__cell">
+            <dt class="stats__value">
+              <span class="stats__num"><em>proven</em></span>
+              <span class="stats__unit">at scale</span>
+            </dt>
+            <dd>under real operational load — not in a pitch deck.</dd>
+          </div>
+        </dl>
+
+        <p class="foundations__note reveal" data-delay="3">
+          The foundation is already there. <em>Atlas is its public form.</em>
+        </p>
       </div>
     </section>
 
