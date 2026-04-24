@@ -56,6 +56,7 @@
 
       <span class="nav__status" aria-live="polite">In development · v0</span>
     </div>
+    <span class="nav__progress" aria-hidden="true"></span>
   </nav>
 
   <main id="top">
@@ -69,7 +70,7 @@
           <div class="hero__text">
             <div class="hero__kicker reveal">
               <span class="eyebrow">The Atlas initiative</span>
-              <span class="hero__coords">42°N · Málaga · est. 2002 — extending</span>
+              <span class="hero__coords">Málaga · 42°N — working since 2002, reaching outward</span>
             </div>
 
             <h1 id="hero-heading" class="display reveal" data-delay="1">
@@ -77,192 +78,138 @@
             </h1>
 
             <p class="hero__sub reveal" data-delay="2">
-              The open intelligence layer organizing software by
+              A neutral intelligence layer that describes software by
               <strong>capability</strong>, <strong>trust</strong>, and <strong>execution</strong> —
-              across platforms, for humans and the systems acting on their behalf.
+              legible to humans and to the systems acting on their behalf.
             </p>
 
             <p class="hero__support reveal" data-delay="3">
-              An initiative from the team behind Uptodown. Built on more than twenty years of
-              real software distribution, becoming infrastructure.
+              From the team behind Uptodown. Two decades of real software distribution,
+              becoming infrastructure for what comes next.
             </p>
 
             <div class="hero__scroll reveal" data-delay="4" aria-hidden="true">
               <span class="hero__scroll-dot"></span>
-              <span>Scroll</span>
+              <span>Read §01 — §08</span>
             </div>
           </div>
 
-          <!-- Hero visual: cartographic-style capability plot -->
+          <!-- Hero visual: ATLAS entity record — what one piece of software looks like indexed -->
           <div class="hero__visual reveal" data-delay="2" aria-hidden="true">
-            <svg viewBox="0 0 600 760" preserveAspectRatio="xMidYMid meet">
+            <svg viewBox="0 0 600 760" preserveAspectRatio="xMidYMid meet" class="plate">
               <defs>
-                <radialGradient id="haze" cx="60%" cy="40%" r="55%">
-                  <stop offset="0%"  stop-color="#D4A574" stop-opacity="0.10"/>
-                  <stop offset="60%" stop-color="#D4A574" stop-opacity="0.02"/>
-                  <stop offset="100%" stop-color="#D4A574" stop-opacity="0"/>
-                </radialGradient>
-                <linearGradient id="axisFade" x1="0" x2="1" y1="0" y2="0">
-                  <stop offset="0%"  stop-color="#373A47" stop-opacity="0"/>
-                  <stop offset="20%" stop-color="#373A47" stop-opacity="1"/>
-                  <stop offset="80%" stop-color="#373A47" stop-opacity="1"/>
-                  <stop offset="100%" stop-color="#373A47" stop-opacity="0"/>
-                </linearGradient>
-                <pattern id="dotgrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <circle cx="1" cy="1" r="0.8" fill="#2A2D38"/>
+                <pattern id="dotgrid" width="22" height="22" patternUnits="userSpaceOnUse">
+                  <circle cx="1" cy="1" r="0.55" fill="#1B1D25"/>
                 </pattern>
-                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="4" result="blur"/>
-                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
+                <linearGradient id="plateGlow" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"  stop-color="#D4A574" stop-opacity="0.055"/>
+                  <stop offset="70%" stop-color="#D4A574" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="hairFade" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0%"  stop-color="#2A2D38" stop-opacity="0"/>
+                  <stop offset="50%" stop-color="#2A2D38" stop-opacity="1"/>
+                  <stop offset="100%" stop-color="#2A2D38" stop-opacity="0"/>
+                </linearGradient>
               </defs>
 
-              <!-- outer plate border -->
+              <!-- plate frame -->
               <rect x="0.5" y="0.5" width="599" height="759" fill="none" stroke="#1B1D25" stroke-width="1"/>
-
-              <!-- corner ticks -->
-              <g stroke="#373A47" stroke-width="1">
-                <path d="M12 2 L12 20 M2 12 L20 12"/>
-                <path d="M588 2 L588 20 M580 12 L598 12"/>
-                <path d="M12 758 L12 740 M2 748 L20 748"/>
-                <path d="M588 758 L588 740 M580 748 L598 748"/>
+              <g stroke="#373A47" stroke-width="1" fill="none">
+                <path d="M12 2 L12 22 M2 12 L22 12"/>
+                <path d="M588 2 L588 22 M578 12 L598 12"/>
+                <path d="M12 758 L12 738 M2 748 L22 748"/>
+                <path d="M588 758 L588 738 M578 748 L598 748"/>
               </g>
 
-              <!-- plate meta -->
-              <g font-family="JetBrains Mono, monospace" font-size="9" fill="#4A4B54" letter-spacing="1.5">
-                <text x="24" y="28">PLATE I  ·  CAPABILITY / TRUST / EXECUTION</text>
-                <text x="24" y="744">ATLAS — PROJECTION v0  ·  2026</text>
-                <text x="576" y="28" text-anchor="end">N 042°  W 04°</text>
-                <text x="576" y="744" text-anchor="end">SCALE — INDEFINITE</text>
+              <!-- background texture inside the plate -->
+              <rect x="28" y="44" width="544" height="686" fill="url(#dotgrid)" opacity="0.45"/>
+              <rect x="28" y="44" width="544" height="686" fill="url(#plateGlow)"/>
+
+              <!-- plate meta (header/footer) -->
+              <g font-family="JetBrains Mono, monospace" font-size="9" fill="#656770" letter-spacing="1.6">
+                <text x="28" y="30">PLATE I  ·  ATLAS / ENTITY RECORD</text>
+                <text x="572" y="30" text-anchor="end">FIG. 01 — SCHEMATIC</text>
+                <text x="28" y="744">v0  ·  MMXXVI</text>
+                <text x="572" y="744" text-anchor="end">SCALE — STRUCTURAL</text>
               </g>
 
-              <!-- dot grid backdrop -->
-              <rect x="40" y="60" width="520" height="640" fill="url(#dotgrid)" opacity="0.65"/>
+              <!-- identifier band -->
+              <g transform="translate(64 100)">
+                <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="10"
+                      fill="#D4A574" letter-spacing="1.8">§ 001 · CANONICAL ENTITY</text>
+                <line x1="0" y1="10" x2="472" y2="10" stroke="url(#hairFade)"/>
+                <text x="0" y="64" font-family="Instrument Serif, serif" font-size="46"
+                      fill="#F0ECE3" letter-spacing="-0.018em" font-style="italic">one piece</text>
+                <text x="0" y="108" font-family="Instrument Serif, serif" font-size="46"
+                      fill="#F0ECE3" letter-spacing="-0.018em" font-style="italic">of software</text>
+                <text x="0" y="138" font-family="JetBrains Mono, monospace" font-size="9"
+                      fill="#8F9099" letter-spacing="1.4">IDENTIFIER · VERSION · ORIGIN · CONTINUITY</text>
+              </g>
 
-              <!-- soft haze -->
-              <rect x="40" y="60" width="520" height="640" fill="url(#haze)"/>
+              <!-- record blocks -->
+              <!-- § 02 CAPABILITY -->
+              <g transform="translate(64 278)" class="record-row">
+                <line x1="0" y1="0" x2="472" y2="0" stroke="#2A2D38"/>
+                <rect x="0" y="0" width="3" height="96" fill="#D4A574" class="record-rail"/>
+                <text x="22" y="22" font-family="JetBrains Mono, monospace" font-size="10"
+                      fill="#D4A574" letter-spacing="1.8">§ 02 · CAPABILITY</text>
+                <text x="472" y="22" text-anchor="end" font-family="JetBrains Mono, monospace"
+                      font-size="9" fill="#656770" letter-spacing="1.4">WHAT IT DOES</text>
+                <text x="22" y="52" font-family="Instrument Serif, serif" font-size="20"
+                      fill="#F0ECE3" font-style="italic">function · classification · dependencies</text>
+                <text x="22" y="78" font-family="Inter, sans-serif" font-size="12.5"
+                      fill="#C4C0B5" letter-spacing="0.01em">canonical identity across every platform it exists on.</text>
+              </g>
 
-              <!-- horizontal axis (datum line) -->
-              <g>
-                <line x1="40" y1="420" x2="560" y2="420" stroke="url(#axisFade)" stroke-width="1"/>
-                <g stroke="#2A2D38" stroke-width="1">
-                  <line x1="100" y1="416" x2="100" y2="424"/>
-                  <line x1="180" y1="416" x2="180" y2="424"/>
-                  <line x1="260" y1="416" x2="260" y2="424"/>
-                  <line x1="340" y1="416" x2="340" y2="424"/>
-                  <line x1="420" y1="416" x2="420" y2="424"/>
-                  <line x1="500" y1="416" x2="500" y2="424"/>
+              <!-- § 03 TRUST -->
+              <g transform="translate(64 408)" class="record-row">
+                <line x1="0" y1="0" x2="472" y2="0" stroke="#2A2D38"/>
+                <rect x="0" y="0" width="3" height="96" fill="#D4A574" class="record-rail"/>
+                <text x="22" y="22" font-family="JetBrains Mono, monospace" font-size="10"
+                      fill="#D4A574" letter-spacing="1.8">§ 03 · TRUST</text>
+                <text x="472" y="22" text-anchor="end" font-family="JetBrains Mono, monospace"
+                      font-size="9" fill="#656770" letter-spacing="1.4">WHETHER IT HOLDS</text>
+                <text x="22" y="52" font-family="Instrument Serif, serif" font-size="20"
+                      fill="#F0ECE3" font-style="italic">provenance · security · continuity</text>
+                <text x="22" y="78" font-family="Inter, sans-serif" font-size="12.5"
+                      fill="#C4C0B5" letter-spacing="0.01em">explainable signals — not verdicts, not brands.</text>
+              </g>
+
+              <!-- § 04 EXECUTION -->
+              <g transform="translate(64 538)" class="record-row">
+                <line x1="0" y1="0" x2="472" y2="0" stroke="#2A2D38"/>
+                <rect x="0" y="0" width="3" height="96" fill="#D4A574" class="record-rail"/>
+                <text x="22" y="22" font-family="JetBrains Mono, monospace" font-size="10"
+                      fill="#D4A574" letter-spacing="1.8">§ 04 · EXECUTION</text>
+                <text x="472" y="22" text-anchor="end" font-family="JetBrains Mono, monospace"
+                      font-size="9" fill="#656770" letter-spacing="1.4">HOW IT RUNS</text>
+                <text x="22" y="52" font-family="Instrument Serif, serif" font-size="20"
+                      fill="#F0ECE3" font-style="italic">install · update · rollback · compatibility</text>
+                <text x="22" y="78" font-family="Inter, sans-serif" font-size="12.5"
+                      fill="#C4C0B5" letter-spacing="0.01em">the operational layer beneath any store or catalogue.</text>
+              </g>
+
+              <!-- readable-to footer rail -->
+              <g transform="translate(64 666)">
+                <line x1="0" y1="0" x2="472" y2="0" stroke="#2A2D38"/>
+                <text x="0" y="22" font-family="JetBrains Mono, monospace" font-size="9"
+                      fill="#B08D5F" letter-spacing="1.8">LEGIBLE TO</text>
+                <g font-family="Inter, sans-serif" font-size="12.5" fill="#F0ECE3" letter-spacing="0.02em">
+                  <text x="98" y="22">humans</text>
+                  <text x="166" y="22" fill="#656770">·</text>
+                  <text x="180" y="22">systems</text>
+                  <text x="246" y="22" fill="#656770">·</text>
+                  <text x="260" y="22">agents</text>
+                  <text x="314" y="22" fill="#656770">·</text>
+                  <text x="328" y="22">platforms</text>
                 </g>
-                <g font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5E67" letter-spacing="1">
-                  <text x="100" y="440" text-anchor="middle">00</text>
-                  <text x="180" y="440" text-anchor="middle">01</text>
-                  <text x="260" y="440" text-anchor="middle">02</text>
-                  <text x="340" y="440" text-anchor="middle">03</text>
-                  <text x="420" y="440" text-anchor="middle">04</text>
-                  <text x="500" y="440" text-anchor="middle">05</text>
-                </g>
+                <circle cx="472" cy="18" r="3" fill="#8BA293"/>
               </g>
 
-              <!-- vertical axis -->
-              <line x1="100" y1="90" x2="100" y2="700" stroke="#262934" stroke-width="1" stroke-dasharray="2 4"/>
-
-              <!-- connective curve (capability trajectory) -->
-              <path d="M 120 620 C 200 560, 210 300, 290 240 S 420 180, 500 130"
-                    fill="none" stroke="#D4A574" stroke-width="1.25" stroke-opacity="0.9"
-                    class="js-draw-path"/>
-
-              <!-- secondary thin curve -->
-              <path d="M 120 620 C 170 600, 220 520, 290 240"
-                    fill="none" stroke="#8A7552" stroke-width="0.75" stroke-opacity="0.55"
-                    stroke-dasharray="2 3"/>
-
-              <!-- secondary arc to execution -->
-              <path d="M 290 240 C 330 280, 380 330, 460 360"
-                    fill="none" stroke="#8A7552" stroke-width="0.75" stroke-opacity="0.55"
-                    stroke-dasharray="2 3"/>
-
-              <!-- Nodes -->
-              <!-- Node: SOURCES -->
-              <g transform="translate(120 620)">
-                <circle r="14" fill="none" stroke="#373A47" stroke-width="1"/>
-                <circle r="4.5" fill="#0A0B0E" stroke="#D4A574" stroke-width="1.25"/>
-                <line x1="18" y1="0" x2="40" y2="0" stroke="#373A47" stroke-width="1"/>
-                <text x="46" y="3" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#B3B0A6" letter-spacing="1.4">§ SOURCES</text>
-                <text x="46" y="18" font-family="JetBrains Mono, monospace" font-size="8"
-                      fill="#5C5E67" letter-spacing="1">platforms · stores · mirrors</text>
-              </g>
-
-              <!-- Node: PROVENANCE -->
-              <g transform="translate(220 500)">
-                <circle r="10" fill="none" stroke="#373A47" stroke-width="1"/>
-                <circle r="3.5" fill="#D4A574"/>
-                <line x1="14" y1="0" x2="34" y2="0" stroke="#373A47" stroke-width="1"/>
-                <text x="40" y="3" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#B3B0A6" letter-spacing="1.4">§ PROVENANCE</text>
-              </g>
-
-              <!-- Node: CAPABILITY (prominent) -->
-              <g transform="translate(290 240)" filter="url(#glow)">
-                <circle r="22" fill="none" stroke="#D4A574" stroke-width="1.25" stroke-opacity="0.45"/>
-                <circle r="14" fill="none" stroke="#D4A574" stroke-width="1"/>
-                <circle r="5.5" fill="#D4A574"/>
-                <line x1="-14" y1="0" x2="14" y2="0" stroke="#D4A574" stroke-width="0.75" stroke-opacity="0.35"/>
-              </g>
-              <g transform="translate(290 240)">
-                <line x1="26" y1="0" x2="54" y2="0" stroke="#D4A574" stroke-width="1" stroke-opacity="0.5"/>
-                <text x="60" y="-3" font-family="Instrument Serif, serif" font-size="18"
-                      fill="#EEEAE0" letter-spacing="0.2">Capability</text>
-                <text x="60" y="15" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#D4A574" letter-spacing="1.4">§ what it does</text>
-              </g>
-
-              <!-- Node: TRUST -->
-              <g transform="translate(380 180)">
-                <circle r="11" fill="none" stroke="#373A47" stroke-width="1"/>
-                <circle r="3.5" fill="#0A0B0E" stroke="#D4A574" stroke-width="1"/>
-                <line x1="15" y1="0" x2="35" y2="0" stroke="#373A47" stroke-width="1"/>
-                <text x="41" y="3" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#B3B0A6" letter-spacing="1.4">§ TRUST</text>
-              </g>
-
-              <!-- Node: EXECUTION -->
-              <g transform="translate(460 360)">
-                <circle r="11" fill="none" stroke="#373A47" stroke-width="1"/>
-                <circle r="3.5" fill="#0A0B0E" stroke="#D4A574" stroke-width="1"/>
-                <line x1="15" y1="0" x2="35" y2="0" stroke="#373A47" stroke-width="1"/>
-                <text x="41" y="3" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#B3B0A6" letter-spacing="1.4">§ EXECUTION</text>
-              </g>
-
-              <!-- Node: SURFACE -->
-              <g transform="translate(500 130)">
-                <circle r="10" fill="none" stroke="#373A47" stroke-width="1"/>
-                <circle r="3" fill="#7F9686"/>
-              </g>
-              <g transform="translate(500 130)">
-                <text x="-8" y="-18" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#B3B0A6" letter-spacing="1.4" text-anchor="end">§ SURFACE</text>
-              </g>
-
-              <!-- Floating index labels -->
-              <g font-family="JetBrains Mono, monospace" font-size="9" fill="#4A4B54" letter-spacing="1.2">
-                <text x="60" y="120">IDX.</text>
-                <text x="60" y="135">001</text>
-
-                <text x="540" y="290" text-anchor="end">▲ agent layer</text>
-                <text x="540" y="305" text-anchor="end">machine-readable</text>
-
-                <text x="60" y="680">▽ distribution plane</text>
-                <text x="60" y="695">humans · agents · systems</text>
-              </g>
-
-              <!-- micro-rule -->
-              <g stroke="#262934" stroke-width="1">
-                <line x1="40" y1="90" x2="80" y2="90"/>
-                <line x1="520" y1="90" x2="560" y2="90"/>
-                <line x1="40" y1="700" x2="80" y2="700"/>
-                <line x1="520" y1="700" x2="560" y2="700"/>
+              <!-- vertical side label -->
+              <g transform="translate(20 420) rotate(-90)" font-family="JetBrains Mono, monospace"
+                 font-size="9" fill="#4A4B54" letter-spacing="2.4" text-anchor="middle">
+                <text>ATLAS · SOFTWARE INDEX</text>
               </g>
             </svg>
           </div>
@@ -270,13 +217,21 @@
       </div>
     </section>
 
-    <!-- Section divider -->
+    <!-- Section divider — small table of contents -->
     <div class="container">
-      <div class="section-divider">
-        <span class="meta">§01 — §08</span>
-        <span class="section-divider__trail"></span>
-        <span class="meta">Atlas · 2026</span>
-      </div>
+      <nav class="section-divider" aria-label="Table of contents">
+        <span class="meta section-divider__label">§ index</span>
+        <ol class="section-divider__list" role="list">
+          <li><a href="#problem"><span>§01</span> Opening</a></li>
+          <li><a href="#definition"><span>§02</span> Definition</a></li>
+          <li><a href="#foundations"><span>§03</span> Foundations</a></li>
+          <li><a href="#services"><span>§04</span> Services</a></li>
+          <li><a href="#principles"><span>§05</span> Principles</a></li>
+          <li><a href="#audiences"><span>§06</span> Audiences</a></li>
+          <li><a href="#relationship"><span>§07</span> Uptodown</a></li>
+          <li><a href="#direction"><span>§08</span> Direction</a></li>
+        </ol>
+      </nav>
     </div>
 
     <!-- ============================================================
@@ -322,18 +277,22 @@
 
         <dl class="ledger reveal" data-delay="2">
           <div class="ledger__cell">
+            <span class="ledger__ix">§ a</span>
             <dt class="ledger__label">Volume</dt>
             <dd>More software is shipped in a year than any team can review in a decade.</dd>
           </div>
           <div class="ledger__cell">
+            <span class="ledger__ix">§ b</span>
             <dt class="ledger__label">Fragmentation</dt>
             <dd>Identities, metadata, and trust models differ between every store, registry, and platform.</dd>
           </div>
           <div class="ledger__cell">
+            <span class="ledger__ix">§ c</span>
             <dt class="ledger__label">Opacity</dt>
             <dd>Security, provenance, and lifecycle information sit fragmented behind commercial interfaces.</dd>
           </div>
           <div class="ledger__cell">
+            <span class="ledger__ix">§ d</span>
             <dt class="ledger__label">Consumers</dt>
             <dd>Software is increasingly consumed by systems, not just people. Systems need structure, not prose.</dd>
           </div>
@@ -466,6 +425,7 @@
 
         <dl class="stats reveal" data-delay="2">
           <div class="stats__cell">
+            <span class="stats__ix">§ i</span>
             <dt class="stats__value">
               <span class="stats__num"><em>20+</em></span>
               <span class="stats__unit">years</span>
@@ -473,6 +433,7 @@
             <dd>of continuous software distribution, at global scale.</dd>
           </div>
           <div class="stats__cell">
+            <span class="stats__ix">§ ii</span>
             <dt class="stats__value">
               <span class="stats__num"><em>millions</em></span>
               <span class="stats__unit">of artifacts</span>
@@ -480,6 +441,7 @@
             <dd>indexed, classified, and versioned — not as listings, as entities.</dd>
           </div>
           <div class="stats__cell">
+            <span class="stats__ix">§ iii</span>
             <dt class="stats__value">
               <span class="stats__num"><em>global</em></span>
               <span class="stats__unit">reach</span>
@@ -487,6 +449,7 @@
             <dd>across every major platform and every region in the world.</dd>
           </div>
           <div class="stats__cell">
+            <span class="stats__ix">§ iv</span>
             <dt class="stats__value">
               <span class="stats__num"><em>proven</em></span>
               <span class="stats__unit">at scale</span>

@@ -181,6 +181,18 @@ section { padding-block: var(--section-pad); position: relative; }
   -webkit-backdrop-filter: saturate(140%) blur(16px);
   border-bottom-color: var(--hairline);
 }
+/* Reading progress rail — thin amber line at the top of the nav that grows with scroll */
+.nav__progress {
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 1px;
+  background: var(--ink-amber);
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition: transform 120ms linear, opacity 360ms var(--ease);
+  opacity: 0;
+}
+.nav.is-scrolled .nav__progress { opacity: 0.9; }
 .nav__inner {
   display: flex; align-items: center; justify-content: space-between;
   gap: 2rem;
@@ -344,16 +356,49 @@ section { padding-block: var(--section-pad); position: relative; }
   50% { box-shadow: 0 0 0 6px rgba(212, 165, 116, 0.06); }
 }
 
+/* Editorial table of contents strip that sits between hero and the body */
 .section-divider {
-  display: flex; align-items: center; gap: 1rem;
-  padding-block: 1.75rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1rem, 2.4vw, 2rem);
+  align-items: center;
+  padding-block: 1.5rem;
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
 }
-.section-divider .meta { color: var(--faded); }
-.section-divider__trail {
-  flex: 1; height: 1px; background: linear-gradient(to right, var(--rule), transparent);
+.section-divider__label {
+  color: var(--ink-amber);
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
 }
+.section-divider__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.4rem;
+  margin: 0; padding: 0; list-style: none;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  color: var(--paper-dim);
+  justify-content: flex-end;
+}
+.section-divider__list a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5ch;
+  padding-block: 0.25rem;
+  transition: color 200ms var(--ease);
+  position: relative;
+}
+.section-divider__list a span {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.section-divider__list a:hover { color: var(--ink-amber); }
+.section-divider__list a:hover span { color: var(--ink-amber); }
 
 /* ---------- 08  Problem & ledger -------------------------------- */
 .problem__body .body { max-width: 64ch; }
@@ -381,8 +426,16 @@ section { padding-block: var(--section-pad); position: relative; }
   padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.25rem, 2vw, 2rem);
   border-right: 1px solid var(--hairline);
   display: flex; flex-direction: column; gap: 0.85rem;
+  position: relative;
 }
 .ledger__cell:last-child { border-right: 0; }
+.ledger__ix {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: lowercase;
+}
 .ledger__label {
   font-family: var(--font-display);
   font-weight: 400;
@@ -390,12 +443,14 @@ section { padding-block: var(--section-pad); position: relative; }
   line-height: 1.1;
   letter-spacing: -0.012em;
   color: var(--paper);
+  position: relative;
+  padding-top: 0.6rem;
 }
-.ledger__cell::before {
+.ledger__label::before {
   content: "";
+  position: absolute; top: 0; left: 0;
   width: 24px; height: 1px;
   background: var(--ink-amber);
-  margin-bottom: 0.3rem;
 }
 .ledger dd {
   font-size: 0.9375rem;
@@ -567,8 +622,17 @@ section { padding-block: var(--section-pad); position: relative; }
   padding: clamp(2rem, 3.5vw, 3rem) clamp(1.5rem, 2.2vw, 2.25rem);
   border-right: 1px solid var(--hairline);
   display: flex; flex-direction: column; gap: 1.15rem;
+  position: relative;
 }
 .stats__cell:last-child { border-right: 0; }
+.stats__ix {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: lowercase;
+  margin-bottom: -0.5rem;
+}
 .stats__value {
   display: flex;
   align-items: baseline;
@@ -620,13 +684,27 @@ section { padding-block: var(--section-pad); position: relative; }
   display: grid;
   grid-template-columns: 88px minmax(0, 4fr) minmax(0, 7fr);
   gap: clamp(1.25rem, 3vw, 3rem);
-  padding: clamp(2rem, 4.5vh, 3rem) 0;
+  padding: clamp(2rem, 4.5vh, 3rem) clamp(0rem, 1vw, 1.25rem);
   border-bottom: 1px solid var(--hairline);
   align-items: start;
   position: relative;
-  transition: background 400ms var(--ease);
+  transition: background 380ms var(--ease), padding-left 380ms var(--ease);
 }
-.service-row:hover { background: linear-gradient(to right, transparent, rgba(212,165,116,0.025) 40%, transparent 100%); }
+.service-row::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--ink-amber);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 420ms var(--ease);
+}
+.service-row:hover {
+  background: linear-gradient(to right, rgba(212,165,116,0.035), transparent 55%);
+  padding-left: clamp(1rem, 2vw, 2rem);
+}
+.service-row:hover::before { transform: scaleY(1); }
 .service-row__n {
   font-family: var(--font-sans);
   font-weight: 500;
@@ -952,10 +1030,19 @@ section { padding-block: var(--section-pad); position: relative; }
   .audience { border-right: 0; }
 }
 
+@media (max-width: 1024px) {
+  .section-divider {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  .section-divider__list { justify-content: flex-start; }
+}
+
 @media (max-width: 720px) {
   :root { --section-pad: clamp(4rem, 9vh, 6rem); }
   .nav__links, .nav__status { display: none; }
   .wordmark__sub { display: none; }
+  .section-divider__list { gap: 0.25rem 1rem; }
   .hero { padding-top: 7.5rem; min-height: auto; }
   .hero__grid { gap: 2.5rem; }
   .hero h1.display { font-size: clamp(2.75rem, 11vw, 4rem); }

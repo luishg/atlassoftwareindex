@@ -11,13 +11,21 @@
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* -----------------------------------------------------------
-     Nav: apply a "scrolled" class once the user leaves the hero
+     Nav: scrolled state + reading progress rail
      --------------------------------------------------------- */
   const nav = document.getElementById('nav');
+  const progress = nav && nav.querySelector('.nav__progress');
   if (nav) {
     let ticking = false;
     const updateNav = () => {
-      nav.classList.toggle('is-scrolled', window.scrollY > 24);
+      const y = window.scrollY;
+      nav.classList.toggle('is-scrolled', y > 24);
+      if (progress) {
+        const doc = document.documentElement;
+        const max = (doc.scrollHeight - window.innerHeight) || 1;
+        const ratio = Math.max(0, Math.min(1, y / max));
+        progress.style.transform = `scaleX(${ratio})`;
+      }
       ticking = false;
     };
     window.addEventListener('scroll', () => {
@@ -26,6 +34,7 @@
         ticking = true;
       }
     }, { passive: true });
+    window.addEventListener('resize', updateNav, { passive: true });
     updateNav();
   }
 
@@ -50,22 +59,22 @@
   }
 
   /* -----------------------------------------------------------
-     Hero path draw-in
+     Hero record rails: amber accent bars fill downward, staggered,
+     so the entity record reads as being "indexed" on load.
      --------------------------------------------------------- */
-  const heroPath = document.querySelector('.js-draw-path');
-  if (heroPath && !prefersReducedMotion) {
-    try {
-      const length = heroPath.getTotalLength();
-      heroPath.style.strokeDasharray = length;
-      heroPath.style.strokeDashoffset = length;
-      heroPath.style.transition = 'stroke-dashoffset 2400ms cubic-bezier(0.22, 0.61, 0.36, 1) 400ms';
-      // Trigger on next frame
+  const rails = document.querySelectorAll('.record-rail');
+  if (rails.length && !prefersReducedMotion) {
+    rails.forEach((rail, i) => {
+      rail.style.transformBox = 'fill-box';
+      rail.style.transformOrigin = 'top';
+      rail.style.transform = 'scaleY(0)';
+      rail.style.transition = `transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1) ${500 + i * 180}ms`;
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          heroPath.style.strokeDashoffset = '0';
+          rail.style.transform = 'scaleY(1)';
         });
       });
-    } catch (e) { /* SVG path API unavailable; silently skip */ }
+    });
   }
 
   /* -----------------------------------------------------------
