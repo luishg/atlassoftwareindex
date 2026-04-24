@@ -24,7 +24,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script>document.documentElement.classList.replace('no-js','js');</script>
@@ -65,174 +65,48 @@
          § HERO
          ============================================================ -->
     <section class="hero" aria-labelledby="hero-heading">
-      <div class="container">
-        <div class="hero__grid">
-          <div class="hero__text">
-            <div class="hero__kicker reveal">
-              <span class="eyebrow">The Atlas initiative</span>
-              <span class="hero__coords">Málaga · 42°N — working since 2002, reaching outward</span>
-            </div>
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__bg-glow"></div>
+        <div class="hero__bg-grid"></div>
+      </div>
 
-            <h1 id="hero-heading" class="display reveal" data-delay="1">
-              An atlas for the<br>world&rsquo;s <em>software</em>.
-            </h1>
+      <div class="container hero__container">
+        <div class="hero__inner">
+          <span class="hero__tag reveal">
+            <span class="hero__tag-dot" aria-hidden="true"></span>
+            The Atlas initiative — in development
+          </span>
 
-            <p class="hero__sub reveal" data-delay="2">
-              A neutral intelligence layer that describes software by
-              <strong>capability</strong>, <strong>trust</strong>, and <strong>execution</strong> —
-              legible to humans and to the systems acting on their behalf.
-            </p>
+          <h1 id="hero-heading" class="hero__title reveal" data-delay="1">
+            An atlas for the<br>world&rsquo;s <em>software</em>.
+          </h1>
 
-            <p class="hero__support reveal" data-delay="3">
-              From the team behind Uptodown. Two decades of real software distribution,
-              becoming infrastructure for what comes next.
-            </p>
+          <p class="hero__lead reveal" data-delay="2">
+            A neutral intelligence layer that describes software by
+            <strong>capability</strong>, <strong>trust</strong>, and <strong>execution</strong>
+            — legible to humans and to the systems acting on their behalf.
+          </p>
 
-            <div class="hero__scroll reveal" data-delay="4" aria-hidden="true">
-              <span class="hero__scroll-dot"></span>
-              <span>Read §01 — §08</span>
-            </div>
-          </div>
+          <p class="hero__support reveal" data-delay="3">
+            From the team behind Uptodown. Two decades of real software
+            distribution, becoming infrastructure for what comes next.
+          </p>
 
-          <!-- Hero visual: ATLAS entity record — what one piece of software looks like indexed -->
-          <div class="hero__visual reveal" data-delay="2" aria-hidden="true">
-            <svg viewBox="0 0 600 760" preserveAspectRatio="xMidYMid meet" class="plate">
-              <defs>
-                <pattern id="dotgrid" width="22" height="22" patternUnits="userSpaceOnUse">
-                  <circle cx="1" cy="1" r="0.55" fill="#1B1D25"/>
-                </pattern>
-                <linearGradient id="plateGlow" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%"  stop-color="#D4A574" stop-opacity="0.055"/>
-                  <stop offset="70%" stop-color="#D4A574" stop-opacity="0"/>
-                </linearGradient>
-                <linearGradient id="hairFade" x1="0" x2="1" y1="0" y2="0">
-                  <stop offset="0%"  stop-color="#2A2D38" stop-opacity="0"/>
-                  <stop offset="50%" stop-color="#2A2D38" stop-opacity="1"/>
-                  <stop offset="100%" stop-color="#2A2D38" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-
-              <!-- plate frame -->
-              <rect x="0.5" y="0.5" width="599" height="759" fill="none" stroke="#1B1D25" stroke-width="1"/>
-              <g stroke="#373A47" stroke-width="1" fill="none">
-                <path d="M12 2 L12 22 M2 12 L22 12"/>
-                <path d="M588 2 L588 22 M578 12 L598 12"/>
-                <path d="M12 758 L12 738 M2 748 L22 748"/>
-                <path d="M588 758 L588 738 M578 748 L598 748"/>
-              </g>
-
-              <!-- background texture inside the plate -->
-              <rect x="28" y="44" width="544" height="686" fill="url(#dotgrid)" opacity="0.45"/>
-              <rect x="28" y="44" width="544" height="686" fill="url(#plateGlow)"/>
-
-              <!-- plate meta (header/footer) -->
-              <g font-family="JetBrains Mono, monospace" font-size="9" fill="#656770" letter-spacing="1.6">
-                <text x="28" y="30">PLATE I  ·  ATLAS / ENTITY RECORD</text>
-                <text x="572" y="30" text-anchor="end">FIG. 01 — SCHEMATIC</text>
-                <text x="28" y="744">v0  ·  MMXXVI</text>
-                <text x="572" y="744" text-anchor="end">SCALE — STRUCTURAL</text>
-              </g>
-
-              <!-- identifier band -->
-              <g transform="translate(64 100)">
-                <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="10"
-                      fill="#D4A574" letter-spacing="1.8">§ 001 · CANONICAL ENTITY</text>
-                <line x1="0" y1="10" x2="472" y2="10" stroke="url(#hairFade)"/>
-                <text x="0" y="64" font-family="Instrument Serif, serif" font-size="46"
-                      fill="#F0ECE3" letter-spacing="-0.018em" font-style="italic">one piece</text>
-                <text x="0" y="108" font-family="Instrument Serif, serif" font-size="46"
-                      fill="#F0ECE3" letter-spacing="-0.018em" font-style="italic">of software</text>
-                <text x="0" y="138" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#8F9099" letter-spacing="1.4">IDENTIFIER · VERSION · ORIGIN · CONTINUITY</text>
-              </g>
-
-              <!-- record blocks -->
-              <!-- § 02 CAPABILITY -->
-              <g transform="translate(64 278)" class="record-row">
-                <line x1="0" y1="0" x2="472" y2="0" stroke="#2A2D38"/>
-                <rect x="0" y="0" width="3" height="96" fill="#D4A574" class="record-rail"/>
-                <text x="22" y="22" font-family="JetBrains Mono, monospace" font-size="10"
-                      fill="#D4A574" letter-spacing="1.8">§ 02 · CAPABILITY</text>
-                <text x="472" y="22" text-anchor="end" font-family="JetBrains Mono, monospace"
-                      font-size="9" fill="#656770" letter-spacing="1.4">WHAT IT DOES</text>
-                <text x="22" y="52" font-family="Instrument Serif, serif" font-size="20"
-                      fill="#F0ECE3" font-style="italic">function · classification · dependencies</text>
-                <text x="22" y="78" font-family="Inter, sans-serif" font-size="12.5"
-                      fill="#C4C0B5" letter-spacing="0.01em">canonical identity across every platform it exists on.</text>
-              </g>
-
-              <!-- § 03 TRUST -->
-              <g transform="translate(64 408)" class="record-row">
-                <line x1="0" y1="0" x2="472" y2="0" stroke="#2A2D38"/>
-                <rect x="0" y="0" width="3" height="96" fill="#D4A574" class="record-rail"/>
-                <text x="22" y="22" font-family="JetBrains Mono, monospace" font-size="10"
-                      fill="#D4A574" letter-spacing="1.8">§ 03 · TRUST</text>
-                <text x="472" y="22" text-anchor="end" font-family="JetBrains Mono, monospace"
-                      font-size="9" fill="#656770" letter-spacing="1.4">WHETHER IT HOLDS</text>
-                <text x="22" y="52" font-family="Instrument Serif, serif" font-size="20"
-                      fill="#F0ECE3" font-style="italic">provenance · security · continuity</text>
-                <text x="22" y="78" font-family="Inter, sans-serif" font-size="12.5"
-                      fill="#C4C0B5" letter-spacing="0.01em">explainable signals — not verdicts, not brands.</text>
-              </g>
-
-              <!-- § 04 EXECUTION -->
-              <g transform="translate(64 538)" class="record-row">
-                <line x1="0" y1="0" x2="472" y2="0" stroke="#2A2D38"/>
-                <rect x="0" y="0" width="3" height="96" fill="#D4A574" class="record-rail"/>
-                <text x="22" y="22" font-family="JetBrains Mono, monospace" font-size="10"
-                      fill="#D4A574" letter-spacing="1.8">§ 04 · EXECUTION</text>
-                <text x="472" y="22" text-anchor="end" font-family="JetBrains Mono, monospace"
-                      font-size="9" fill="#656770" letter-spacing="1.4">HOW IT RUNS</text>
-                <text x="22" y="52" font-family="Instrument Serif, serif" font-size="20"
-                      fill="#F0ECE3" font-style="italic">install · update · rollback · compatibility</text>
-                <text x="22" y="78" font-family="Inter, sans-serif" font-size="12.5"
-                      fill="#C4C0B5" letter-spacing="0.01em">the operational layer beneath any store or catalogue.</text>
-              </g>
-
-              <!-- readable-to footer rail -->
-              <g transform="translate(64 666)">
-                <line x1="0" y1="0" x2="472" y2="0" stroke="#2A2D38"/>
-                <text x="0" y="22" font-family="JetBrains Mono, monospace" font-size="9"
-                      fill="#B08D5F" letter-spacing="1.8">LEGIBLE TO</text>
-                <g font-family="Inter, sans-serif" font-size="12.5" fill="#F0ECE3" letter-spacing="0.02em">
-                  <text x="98" y="22">humans</text>
-                  <text x="166" y="22" fill="#656770">·</text>
-                  <text x="180" y="22">systems</text>
-                  <text x="246" y="22" fill="#656770">·</text>
-                  <text x="260" y="22">agents</text>
-                  <text x="314" y="22" fill="#656770">·</text>
-                  <text x="328" y="22">platforms</text>
-                </g>
-                <circle cx="472" cy="18" r="3" fill="#8BA293"/>
-              </g>
-
-              <!-- vertical side label -->
-              <g transform="translate(20 420) rotate(-90)" font-family="JetBrains Mono, monospace"
-                 font-size="9" fill="#4A4B54" letter-spacing="2.4" text-anchor="middle">
-                <text>ATLAS · SOFTWARE INDEX</text>
-              </g>
-            </svg>
+          <div class="hero__actions reveal" data-delay="4">
+            <a href="#problem" class="btn btn--pill">
+              <span>Begin reading</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                   stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <polyline points="5 12 12 19 19 12"/>
+              </svg>
+            </a>
+            <span class="hero__origin">Málaga · 2026</span>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Section divider — small table of contents -->
-    <div class="container">
-      <nav class="section-divider" aria-label="Table of contents">
-        <span class="meta section-divider__label">§ index</span>
-        <ol class="section-divider__list" role="list">
-          <li><a href="#problem"><span>§01</span> Opening</a></li>
-          <li><a href="#definition"><span>§02</span> Definition</a></li>
-          <li><a href="#foundations"><span>§03</span> Foundations</a></li>
-          <li><a href="#services"><span>§04</span> Services</a></li>
-          <li><a href="#principles"><span>§05</span> Principles</a></li>
-          <li><a href="#audiences"><span>§06</span> Audiences</a></li>
-          <li><a href="#relationship"><span>§07</span> Uptodown</a></li>
-          <li><a href="#direction"><span>§08</span> Direction</a></li>
-        </ol>
-      </nav>
-    </div>
 
     <!-- ============================================================
          § PROBLEM
@@ -277,22 +151,18 @@
 
         <dl class="ledger reveal" data-delay="2">
           <div class="ledger__cell">
-            <span class="ledger__ix">§ a</span>
             <dt class="ledger__label">Volume</dt>
             <dd>More software is shipped in a year than any team can review in a decade.</dd>
           </div>
           <div class="ledger__cell">
-            <span class="ledger__ix">§ b</span>
             <dt class="ledger__label">Fragmentation</dt>
             <dd>Identities, metadata, and trust models differ between every store, registry, and platform.</dd>
           </div>
           <div class="ledger__cell">
-            <span class="ledger__ix">§ c</span>
             <dt class="ledger__label">Opacity</dt>
             <dd>Security, provenance, and lifecycle information sit fragmented behind commercial interfaces.</dd>
           </div>
           <div class="ledger__cell">
-            <span class="ledger__ix">§ d</span>
             <dt class="ledger__label">Consumers</dt>
             <dd>Software is increasingly consumed by systems, not just people. Systems need structure, not prose.</dd>
           </div>
@@ -323,10 +193,10 @@
               <span class="schematic__mark" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><circle class="outer" cx="12" cy="12" r="9"/><line x1="2" y1="12" x2="22" y2="12"/><circle class="center" cx="12" cy="12" r="1.3"/></svg>
               </span>
-              <span class="schematic__name">ATLAS</span>
-              <span class="schematic__sub">schematic · four planes, one index</span>
+              <span class="schematic__name">Atlas</span>
+              <span class="schematic__sub">Four planes · one index</span>
             </div>
-            <span class="schematic__ref">Fig. 01</span>
+            <span class="schematic__ref">§02</span>
           </header>
 
           <ol class="schematic__planes" role="list">
@@ -425,7 +295,6 @@
 
         <dl class="stats reveal" data-delay="2">
           <div class="stats__cell">
-            <span class="stats__ix">§ i</span>
             <dt class="stats__value">
               <span class="stats__num"><em>20+</em></span>
               <span class="stats__unit">years</span>
@@ -433,7 +302,6 @@
             <dd>of continuous software distribution, at global scale.</dd>
           </div>
           <div class="stats__cell">
-            <span class="stats__ix">§ ii</span>
             <dt class="stats__value">
               <span class="stats__num"><em>millions</em></span>
               <span class="stats__unit">of artifacts</span>
@@ -441,7 +309,6 @@
             <dd>indexed, classified, and versioned — not as listings, as entities.</dd>
           </div>
           <div class="stats__cell">
-            <span class="stats__ix">§ iii</span>
             <dt class="stats__value">
               <span class="stats__num"><em>global</em></span>
               <span class="stats__unit">reach</span>
@@ -449,7 +316,6 @@
             <dd>across every major platform and every region in the world.</dd>
           </div>
           <div class="stats__cell">
-            <span class="stats__ix">§ iv</span>
             <dt class="stats__value">
               <span class="stats__num"><em>proven</em></span>
               <span class="stats__unit">at scale</span>

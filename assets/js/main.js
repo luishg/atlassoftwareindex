@@ -1,8 +1,8 @@
 /* =============================================================
    Atlas — main.js
-   - Sticky nav state on scroll
+   - Sticky nav state + reading progress rail
    - IntersectionObserver-based reveal animations
-   - Progressive hero path draw-in
+   - Smooth anchor scroll with a11y focus handling
    ============================================================= */
 
 (() => {
@@ -58,24 +58,6 @@
     revealables.forEach(el => io.observe(el));
   }
 
-  /* -----------------------------------------------------------
-     Hero record rails: amber accent bars fill downward, staggered,
-     so the entity record reads as being "indexed" on load.
-     --------------------------------------------------------- */
-  const rails = document.querySelectorAll('.record-rail');
-  if (rails.length && !prefersReducedMotion) {
-    rails.forEach((rail, i) => {
-      rail.style.transformBox = 'fill-box';
-      rail.style.transformOrigin = 'top';
-      rail.style.transform = 'scaleY(0)';
-      rail.style.transition = `transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1) ${500 + i * 180}ms`;
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          rail.style.transform = 'scaleY(1)';
-        });
-      });
-    });
-  }
 
   /* -----------------------------------------------------------
      Smooth anchor focus handling (keep accessibility correct)
