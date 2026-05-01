@@ -29,7 +29,7 @@
       try {
         var t = localStorage.getItem('cartograpp:theme');
         var m = localStorage.getItem('cartograpp:mode');
-        if (t && /^[ABCD]$/.test(t)) d.setAttribute('data-theme', t);
+        if (t && /^[ABCDEF]$/.test(t)) d.setAttribute('data-theme', t);
         if (m === 'dark' || m === 'light') d.setAttribute('data-mode', m);
       } catch(e){}
     })();
@@ -37,12 +37,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&family=Orbitron:wght@500;700;900&family=VT323&family=DM+Serif+Display:ital@0;1&family=Bungee&family=Bungee+Shade&display=swap">
 
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="/assets/css/theme-b.css">
   <link rel="stylesheet" href="/assets/css/theme-c.css">
   <link rel="stylesheet" href="/assets/css/theme-d.css">
+  <link rel="stylesheet" href="/assets/css/theme-e.css">
+  <link rel="stylesheet" href="/assets/css/theme-f.css">
 </head>
 <body>
 
@@ -113,6 +115,20 @@
               <span class="theme-picker__option-text">
                 <span class="theme-picker__option-name">Rompedor</span>
                 <span class="theme-picker__option-sub">Brutalist · experimental</span>
+              </span>
+            </li>
+            <li class="theme-picker__option" role="option" data-theme="E" aria-selected="false" tabindex="-1">
+              <span class="theme-picker__option-letter">E</span>
+              <span class="theme-picker__option-text">
+                <span class="theme-picker__option-name">Cyberpunk</span>
+                <span class="theme-picker__option-sub">Neon · glitch · terminal</span>
+              </span>
+            </li>
+            <li class="theme-picker__option" role="option" data-theme="F" aria-selected="false" tabindex="-1">
+              <span class="theme-picker__option-letter">F</span>
+              <span class="theme-picker__option-text">
+                <span class="theme-picker__option-name">Distopian</span>
+                <span class="theme-picker__option-sub">Sci-fi comic · bio-mech</span>
               </span>
             </li>
           </ul>

@@ -22,6 +22,8 @@
     B: 'Aspirational Abstract',
     C: 'Corporate Professional',
     D: 'Rompedor',
+    E: 'Cyberpunk',
+    F: 'Distopian',
   };
 
   const picker = document.querySelector('[data-theme-picker]');
