@@ -260,11 +260,10 @@ section { padding-block: var(--section-pad); position: relative; }
 }
 .wordmark__glyph svg { width: 100%; height: 100%; transition: transform 600ms var(--ease); overflow: visible; }
 .wordmark:hover .wordmark__glyph svg { transform: scale(1.06); }
-.wordmark__glyph .iso { stroke: currentColor; fill: none; stroke-width: 1; vector-effect: non-scaling-stroke; }
-.wordmark__glyph .iso-1 { opacity: 0.4; }
-.wordmark__glyph .iso-2 { opacity: 0.7; }
-.wordmark__glyph .iso-3 { opacity: 1; }
-.wordmark__glyph .iso-peak { fill: currentColor; stroke: none; }
+.wordmark__glyph .contour { stroke: currentColor; fill: none; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.wordmark__glyph .c-1 { opacity: 1; }
+.wordmark__glyph .c-2 { opacity: 0.75; }
+.wordmark__glyph .c-3 { opacity: 0.45; }
 .wordmark__text {
   font-family: var(--font-display);
   font-size: 1.45rem;
