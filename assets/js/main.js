@@ -1,5 +1,5 @@
 /* =============================================================
-   Atlas — main.js
+   Cartograpp — main.js
    - Sticky nav state + reading progress rail
    - IntersectionObserver-based reveal animations
    - Smooth anchor scroll with a11y focus handling
@@ -40,12 +40,20 @@
 
   /* -----------------------------------------------------------
      Reveal on scroll
+     - Anything already in the initial viewport reveals immediately
+       (so the hero never flashes empty even before IO fires).
+     - Anything below the fold is revealed by IntersectionObserver.
      --------------------------------------------------------- */
   const revealables = document.querySelectorAll('.reveal');
 
   if (prefersReducedMotion || !('IntersectionObserver' in window)) {
     revealables.forEach(el => el.classList.add('is-visible'));
   } else {
+    const inInitialViewport = (el) => {
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    };
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -55,7 +63,13 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
-    revealables.forEach(el => io.observe(el));
+    revealables.forEach(el => {
+      if (inInitialViewport(el)) {
+        el.classList.add('is-visible');
+      } else {
+        io.observe(el);
+      }
+    });
   }
 
 
