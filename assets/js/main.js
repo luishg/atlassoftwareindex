@@ -91,4 +91,41 @@
       }, 600);
     });
   });
+
+  /* -----------------------------------------------------------
+     Hero contour parallax — drives CSS custom properties so the
+     SVG translates with scroll and (subtly) follows the cursor.
+     Skipped entirely for reduced-motion or coarse pointers.
+     --------------------------------------------------------- */
+  const contour = document.querySelector('.hero__bg-contours');
+  if (contour && !prefersReducedMotion) {
+    const hero = document.querySelector('.hero');
+    let scrollY = 0, mouseX = 0, mouseY = 0;
+    let raf = false;
+    const apply = () => {
+      raf = false;
+      // parallax follows scroll until ~120% of hero height
+      const heroHeight = hero ? hero.offsetHeight : window.innerHeight;
+      const k = Math.max(-1, Math.min(1, scrollY / heroHeight));
+      const py = -k * 90 + mouseY * 14;     // up to 90px on scroll, ±14px on cursor
+      const px = mouseX * 18;               // ±18px horizontal on cursor
+      contour.style.setProperty('--contour-py', py.toFixed(2) + 'px');
+      contour.style.setProperty('--contour-px', px.toFixed(2) + 'px');
+    };
+    const schedule = () => {
+      if (!raf) { raf = true; window.requestAnimationFrame(apply); }
+    };
+    window.addEventListener('scroll', () => {
+      scrollY = window.scrollY;
+      schedule();
+    }, { passive: true });
+    // Mouse parallax only on fine pointers (skip touch)
+    if (window.matchMedia('(pointer: fine)').matches) {
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth)  - 0.5;  // -0.5 .. 0.5
+        mouseY = (e.clientY / window.innerHeight) - 0.5;
+        schedule();
+      }, { passive: true });
+    }
+  }
 })();

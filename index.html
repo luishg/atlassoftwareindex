@@ -54,7 +54,7 @@
         <li><a href="#what">What</a></li>
         <li><a href="#surfaces">Surfaces</a></li>
         <li><a href="#principles">Principles</a></li>
-        <li><a href="#group">Group</a></li>
+        <li><a href="#products">Products</a></li>
       </ul>
 
       <span class="nav__status" aria-live="polite">
@@ -74,14 +74,29 @@
       <div class="hero__bg" aria-hidden="true">
         <div class="hero__bg-grain"></div>
         <div class="hero__bg-grid"></div>
-        <svg class="hero__bg-contours" viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMid slice">
-          <g fill="none" stroke="currentColor" stroke-width="0.6">
-            <path d="M1600,300 C1380,260 1260,330 1180,360 C1080,400 980,360 880,420" />
-            <path d="M1600,360 C1360,320 1240,400 1140,440 C1040,480 940,440 820,500" />
-            <path d="M1600,440 C1340,400 1220,500 1100,540 C980,580 880,540 760,600" />
-            <path d="M1600,540 C1320,500 1200,610 1060,640 C940,670 840,640 700,700" />
-            <path d="M1600,640 C1300,600 1180,720 1020,750 C880,780 780,750 640,810" />
-            <path d="M1600,740 C1280,700 1160,820 980,840 C840,860 740,840 580,900" />
+        <svg class="hero__bg-contours" viewBox="0 0 1600 1100" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="contour-grad" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" stop-color="currentColor" stop-opacity="0"/>
+              <stop offset="35%" stop-color="currentColor" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#contour-grad)" stroke-width="0.7" stroke-linecap="round">
+            <path pathLength="1" d="M1600,180 C1380,130 1260,200 1160,240 C1040,290 940,260 820,310"/>
+            <path pathLength="1" d="M1600,260 C1360,210 1240,290 1140,330 C1020,380 920,350 780,420"/>
+            <path pathLength="1" d="M1600,360 C1340,310 1220,400 1100,440 C980,490 880,460 740,540"/>
+            <path pathLength="1" d="M1600,470 C1320,420 1200,520 1060,560 C940,600 840,580 700,660"/>
+            <path pathLength="1" d="M1600,580 C1300,530 1180,640 1020,670 C900,700 800,690 660,780"/>
+            <path pathLength="1" d="M1600,700 C1280,650 1160,760 980,780 C860,800 760,800 620,890"/>
+            <path pathLength="1" d="M1600,820 C1260,770 1140,880 940,890 C820,900 720,910 580,1000"/>
+            <path pathLength="1" d="M1600,940 C1240,890 1120,1000 900,1000 C780,1010 680,1020 540,1100"/>
+          </g>
+          <!-- elevation pings -->
+          <g class="hero__bg-pings">
+            <circle cx="1180" cy="240" r="2.5" fill="currentColor"/>
+            <circle cx="1100" cy="440" r="2.5" fill="currentColor"/>
+            <circle cx="1020" cy="670" r="2.5" fill="currentColor"/>
           </g>
         </svg>
       </div>
@@ -90,60 +105,27 @@
         <header class="hero__meta">
           <div class="hero__coords">
             <span class="mono">36° 43&prime; N · 04° 25&prime; W</span>
-            <span class="mono">Málaga · Cartograpp Group</span>
+            <span class="mono">Málaga · Independent · Since 2002</span>
           </div>
-          <span class="hero__year mono">EST. 2002 — 2026 →</span>
+          <span class="hero__year mono">CARTOGRAPP — v0.2 · 2026</span>
         </header>
 
         <div class="hero__inner">
-          <span class="hero__tag reveal">
-            <span class="hero__tag-dot" aria-hidden="true"></span>
-            The Cartograpp Group
-          </span>
-
-          <h1 id="hero-heading" class="hero__title reveal" data-delay="1">
+          <h1 id="hero-heading" class="hero__title reveal">
             The cartography<br>of the world&rsquo;s <em>software</em>.
           </h1>
 
-          <p class="hero__lead reveal" data-delay="2">
+          <p class="hero__lead reveal" data-delay="1">
             Cartograpp is the company mapping all software the way atlases once mapped the
             world — by <strong>capability</strong>, <strong>trust</strong>, and
             <strong>execution</strong>. Legible to humans. Legible to machines.
           </p>
 
-          <p class="hero__support reveal" data-delay="3">
+          <p class="hero__support reveal" data-delay="2">
             Home of <a class="hero__link" href="https://en.uptodown.com" rel="noopener">Uptodown</a>
-            and the surfaces being built on top of two decades of real software distribution.
+            and the products being built on top of two decades of real software distribution.
           </p>
-
-          <div class="hero__actions reveal" data-delay="4">
-            <a href="#opening" class="btn btn--pill">
-              <span>Begin reading</span>
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
-                   stroke="currentColor" stroke-width="1.5"
-                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <polyline points="5 12 12 19 19 12"/>
-              </svg>
-            </a>
-            <a href="mailto:hello@cartograpp.com" class="btn btn--ghost">
-              <span>hello@cartograpp.com</span>
-            </a>
-          </div>
         </div>
-
-        <aside class="hero__rail" aria-hidden="true">
-          <ol class="hero__rail-list" role="list">
-            <li><span class="mono">§01</span><span>Opening</span></li>
-            <li><span class="mono">§02</span><span>Definition</span></li>
-            <li><span class="mono">§03</span><span>Foundations</span></li>
-            <li><span class="mono">§04</span><span>Surfaces</span></li>
-            <li><span class="mono">§05</span><span>Principles</span></li>
-            <li><span class="mono">§06</span><span>Audiences</span></li>
-            <li><span class="mono">§07</span><span>Group</span></li>
-            <li><span class="mono">§08</span><span>Direction</span></li>
-          </ol>
-        </aside>
       </div>
     </section>
 
@@ -249,7 +231,6 @@
           <ol class="schematic__planes" role="list">
             <li class="plane">
               <header class="plane__head">
-                <span class="plane__n mono">§ 01</span>
                 <h3 class="plane__title">Capability<br>graph</h3>
               </header>
               <div class="plane__body">
@@ -264,7 +245,6 @@
             </li>
             <li class="plane">
               <header class="plane__head">
-                <span class="plane__n mono">§ 02</span>
                 <h3 class="plane__title">Trust &amp;<br>provenance</h3>
               </header>
               <div class="plane__body">
@@ -279,7 +259,6 @@
             </li>
             <li class="plane">
               <header class="plane__head">
-                <span class="plane__n mono">§ 03</span>
                 <h3 class="plane__title">Execution<br>knowledge</h3>
               </header>
               <div class="plane__body">
@@ -294,7 +273,6 @@
             </li>
             <li class="plane">
               <header class="plane__head">
-                <span class="plane__n mono">§ 04</span>
                 <h3 class="plane__title">Multi-surface<br>access</h3>
               </header>
               <div class="plane__body">
@@ -396,7 +374,6 @@
 
         <div class="service-list">
           <article class="service-row reveal">
-            <div class="service-row__n mono">§ 01</div>
             <div class="service-row__title">
               <h3>Software index &amp; metadata</h3>
               <div class="meta">The backbone</div>
@@ -415,7 +392,6 @@
           </article>
 
           <article class="service-row reveal">
-            <div class="service-row__n mono">§ 02</div>
             <div class="service-row__title">
               <h3>Trust &amp; transparency layer</h3>
               <div class="meta">Explainable</div>
@@ -434,7 +410,6 @@
           </article>
 
           <article class="service-row reveal">
-            <div class="service-row__n mono">§ 03</div>
             <div class="service-row__title">
               <h3>Execution knowledge</h3>
               <div class="meta">Operational</div>
@@ -452,7 +427,6 @@
           </article>
 
           <article class="service-row reveal">
-            <div class="service-row__n mono">§ 04</div>
             <div class="service-row__title">
               <h3>APIs for platforms, enterprises &amp; agents</h3>
               <div class="meta">Machine-readable</div>
@@ -471,7 +445,6 @@
           </article>
 
           <article class="service-row reveal">
-            <div class="service-row__n mono">§ 05</div>
             <div class="service-row__title">
               <h3>Sovereign &amp; deployable infrastructure</h3>
               <div class="meta">Policy-ready</div>
@@ -510,7 +483,6 @@
 
         <div class="principles__grid">
           <article class="principle reveal">
-            <div class="principle__n mono">§ 01</div>
             <h3 class="principle__title">Neutrality</h3>
             <p class="principle__body">
               Independent of any single platform, vendor, or store. We describe what is —
@@ -519,7 +491,6 @@
           </article>
 
           <article class="principle reveal" data-delay="1">
-            <div class="principle__n mono">§ 02</div>
             <h3 class="principle__title">Trust</h3>
             <p class="principle__body">
               Explainability over opacity. Provenance over assertion. Continuity over
@@ -528,7 +499,6 @@
           </article>
 
           <article class="principle reveal" data-delay="2">
-            <div class="principle__n mono">§ 03</div>
             <h3 class="principle__title">Accessibility</h3>
             <p class="principle__body">
               Open access to software knowledge across regions, systems, and use cases.
@@ -538,7 +508,6 @@
           </article>
 
           <article class="principle reveal" data-delay="3">
-            <div class="principle__n mono">§ 04</div>
             <h3 class="principle__title">Intelligence</h3>
             <p class="principle__body">
               Software organized into operationally useful knowledge — not just lists, not
@@ -547,7 +516,6 @@
           </article>
 
           <article class="principle reveal" data-delay="4">
-            <div class="principle__n mono">§ 05</div>
             <h3 class="principle__title">Human signal</h3>
             <p class="principle__body">
               Editorial judgment and human context matter more in a noisy software world,
@@ -572,118 +540,123 @@
 
         <div class="audiences__grid">
           <article class="audience reveal">
-            <div class="meta audience__n">§ A</div>
-            <div>
-              <h3>Third-party stores &amp; software ecosystems</h3>
-              <p>
-                A neutral, enriched software intelligence layer beneath app stores,
-                marketplaces, and distribution platforms — so they can focus on their own
-                front ends without rebuilding the index from scratch.
-              </p>
-            </div>
+            <h3>Third-party stores &amp; software ecosystems</h3>
+            <p>
+              A neutral, enriched software intelligence layer beneath app stores,
+              marketplaces, and distribution platforms — so they can focus on their own
+              front ends without rebuilding the index from scratch.
+            </p>
           </article>
 
           <article class="audience reveal" data-delay="1">
-            <div class="meta audience__n">§ B</div>
-            <div>
-              <h3>Enterprises &amp; IT governance</h3>
-              <p>
-                A foundation for software inventory, approval workflows, and risk
-                evaluation that reflects reality across operating systems, clouds, and
-                vendors — rather than the view of any single platform.
-              </p>
-            </div>
+            <h3>Enterprises &amp; IT governance</h3>
+            <p>
+              A foundation for software inventory, approval workflows, and risk
+              evaluation that reflects reality across operating systems, clouds, and
+              vendors — rather than the view of any single platform.
+            </p>
           </article>
 
           <article class="audience reveal" data-delay="2">
-            <div class="meta audience__n">§ C</div>
-            <div>
-              <h3>Governments &amp; sovereignty programs</h3>
-              <p>
-                Deployable, auditable software intelligence for regulated environments,
-                national digital programs, and public-sector procurement where
-                independence and local control are non-negotiable.
-              </p>
-            </div>
+            <h3>Governments &amp; sovereignty programs</h3>
+            <p>
+              Deployable, auditable software intelligence for regulated environments,
+              national digital programs, and public-sector procurement where
+              independence and local control are non-negotiable.
+            </p>
           </article>
 
           <article class="audience reveal" data-delay="3">
-            <div class="meta audience__n">§ D</div>
-            <div>
-              <h3>Developers, platforms &amp; agents</h3>
-              <p>
-                APIs and machine-readable context for automation tooling, build systems,
-                deployment platforms, and agent workflows that need to reason about
-                software rather than guess at it.
-              </p>
-            </div>
+            <h3>Developers, platforms &amp; agents</h3>
+            <p>
+              APIs and machine-readable context for automation tooling, build systems,
+              deployment platforms, and agent workflows that need to reason about
+              software rather than guess at it.
+            </p>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         § GROUP — Cartograpp & Uptodown
+         § PRODUCTS — One map. Multiple products.
          ============================================================ -->
-    <section id="group" class="group" aria-labelledby="group-heading">
+    <section id="products" class="products" aria-labelledby="products-heading">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow reveal">§07 · The group</span>
-          <h2 id="group-heading" class="display reveal" data-delay="1">
-            Cartograpp is the layer.<br><em>Uptodown is a surface on it.</em>
+          <span class="eyebrow reveal">§07 · Products</span>
+          <h2 id="products-heading" class="display reveal" data-delay="1">
+            One map.<br>Multiple <em>products and services.</em>
           </h2>
           <p class="lead reveal" data-delay="2">
-            Uptodown continues as a consumer-facing distribution product, with the global
-            reach it already has. Cartograpp is the deeper platform — the cartography that
-            Uptodown is being rebuilt on top of, and that many other products, services, and
-            organizations will be able to build on top of as well.
+            Cartograpp is the cartography. Uptodown is the first product built on top of
+            it. More are charted, in build, or on the horizon — each shaped for a
+            different way of consuming software intelligence.
           </p>
         </div>
 
-        <div class="stack reveal" data-delay="2" aria-label="Cartograpp and Uptodown: system diagram">
-          <div class="stack__row stack__row--surfaces">
-            <div class="stack__label mono">Surfaces ↑</div>
-            <div class="stack__items">
-              <span class="is-flagship">Uptodown</span>
-              <span>3rd-party stores</span>
-              <span>Enterprise IT</span>
-              <span>Sovereign deployments</span>
-              <span>Agents &amp; automation</span>
+        <ol class="product-list" role="list">
+          <li class="product product--live reveal">
+            <header class="product__head">
+              <span class="product__pill product__pill--live">
+                <span class="product__pill-dot" aria-hidden="true"></span>
+                Live
+              </span>
+              <span class="product__since mono">Since 2002</span>
+            </header>
+            <div class="product__body">
+              <h3 class="product__name">Uptodown</h3>
+              <p class="product__desc">
+                The consumer-facing software distribution surface. Used by hundreds of
+                millions of people across every region in the world, on every major
+                platform — and now being rebuilt on top of Cartograpp&rsquo;s cartography.
+              </p>
+              <a class="product__link" href="https://en.uptodown.com" rel="noopener">
+                <span>Visit en.uptodown.com</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                     stroke="currentColor" stroke-width="1.6"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
             </div>
-          </div>
+          </li>
 
-          <div class="stack__connectors" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-
-          <div class="stack__row stack__row--core">
-            <div class="stack__core-inner">
-              <div class="stack__label stack__label--accent mono">The cartography</div>
-              <div class="stack__core-name">CARTOGRAPP</div>
-              <div class="stack__core-sub">
-                <span>Capability graph</span><span>Trust &amp; provenance</span><span>Execution knowledge</span><span>APIs</span>
-              </div>
+          <li class="product product--building reveal" data-delay="1">
+            <header class="product__head">
+              <span class="product__pill">In development</span>
+              <span class="product__since mono">2026 →</span>
+            </header>
+            <div class="product__body">
+              <h3 class="product__name">Cartograpp APIs</h3>
+              <p class="product__desc">
+                Machine-readable cartography for third-party stores, enterprise
+                governance, build pipelines, and agent-based workflows. Software
+                intelligence as a first-class input — not a page to scrape.
+              </p>
             </div>
-          </div>
+          </li>
 
-          <div class="stack__connectors" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-
-          <div class="stack__row stack__row--ground">
-            <div class="stack__label mono">Software ↓</div>
-            <div class="stack__items">
-              <span>every platform</span>
-              <span>every source</span>
-              <span>every format</span>
-              <span>every lifecycle stage</span>
+          <li class="product product--horizon reveal" data-delay="2">
+            <header class="product__head">
+              <span class="product__pill">On the horizon</span>
+              <span class="product__since mono">In design</span>
+            </header>
+            <div class="product__body">
+              <h3 class="product__name">Sovereign cartography</h3>
+              <p class="product__desc">
+                Deployable, auditable software intelligence for regulated environments and
+                national digital programs that require independence, local control, and
+                policy-aware operations.
+              </p>
             </div>
-          </div>
-        </div>
+          </li>
+        </ol>
 
-        <p class="group__note reveal" data-delay="3">
-          This is an expansion upward, <em>not a pivot away.</em> Uptodown gains a stronger
-          foundation. Everything built above that foundation becomes possible.
+        <p class="products__note reveal" data-delay="3">
+          One cartography, many surfaces. <em>Uptodown is the first product to stand on
+          it — it will not be the last.</em>
         </p>
       </div>
     </section>
