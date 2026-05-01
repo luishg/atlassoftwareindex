@@ -1,0 +1,298 @@
+/* =============================================================
+   THEME C — Corporate Professional
+   Restrained, trustworthy, enterprise-grade. Clean Inter throughout
+   (no serif), slate + corporate blue, hairline 1px borders, sharp
+   corners, denser spacing, all-caps eyebrows with high tracking.
+   No decorative ornaments — just structure and data.
+   ============================================================= */
+
+html[data-theme="C"] {
+  /* --- Palette: white + slate + corporate blue ----------- */
+  --paper:        #FFFFFF;
+  --paper-soft:   #F8FAFC;
+  --paper-deep:   #F1F5F9;
+  --hairline:     #E2E8F0;
+  --rule:         #CBD5E1;
+  --rule-strong:  #94A3B8;
+
+  --ink:          #0F172A;
+  --ink-soft:     #334155;
+  --ink-mid:      #64748B;
+  --ink-faint:    #94A3B8;
+
+  --copper:       #2563EB;
+  --copper-soft:  #3B82F6;
+  --copper-deep:  #1D4ED8;
+  --copper-wash:  rgba(37, 99, 235, 0.06);
+  --copper-hair:  rgba(37, 99, 235, 0.20);
+  --copper-glow:  rgba(37, 99, 235, 0.03);
+
+  --indigo:       #1E40AF;
+  --indigo-soft:  #3B82F6;
+
+  /* --- Type: Inter only --------------------------------- */
+  --font-display: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-sans:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Tighter spacing — corporate dense */
+  --section-pad:  clamp(5rem, 11vh, 8rem);
+  --radius:       4px;
+}
+
+html[data-theme="C"] body::before { display: none; }
+
+/* --- Display / typography ---------------------------------- */
+html[data-theme="C"] .display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+html[data-theme="C"] .display em {
+  font-style: normal;
+  color: var(--copper);
+}
+html[data-theme="C"] h2.display {
+  font-size: clamp(2rem, 3.8vw, 3.25rem);
+}
+
+html[data-theme="C"] .eyebrow {
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+html[data-theme="C"] .eyebrow::before { background: var(--copper); opacity: 1; }
+
+html[data-theme="C"] .lead {
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.3vw, 1.1875rem);
+}
+html[data-theme="C"] .body { font-size: 1rem; line-height: 1.65; }
+html[data-theme="C"] .body strong { color: var(--ink); font-weight: 600; }
+
+/* --- Nav --------------------------------------------------- */
+html[data-theme="C"] .nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(140%) blur(16px);
+  -webkit-backdrop-filter: saturate(140%) blur(16px);
+  border-bottom: 1px solid var(--hairline);
+}
+html[data-theme="C"] .nav.is-scrolled { background: rgba(255, 255, 255, 0.96); }
+html[data-theme="C"] .wordmark__text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.014em;
+}
+html[data-theme="C"] .wordmark__glyph { color: var(--copper); }
+html[data-theme="C"] .nav__links {
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-weight: 500;
+}
+
+/* --- Hero -------------------------------------------------- */
+html[data-theme="C"] .hero { min-height: 88vh; }
+html[data-theme="C"] .hero__bg-contours { display: none; }
+html[data-theme="C"] .hero__bg-grain {
+  background:
+    radial-gradient(900px 600px at 100% 0%, rgba(37, 99, 235, 0.05), transparent 60%);
+}
+html[data-theme="C"] .hero__bg-grid {
+  background-image:
+    linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px;
+}
+html[data-theme="C"] .hero__year { color: var(--copper); }
+html[data-theme="C"] .hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  font-size: clamp(2.75rem, 8vw, 6.5rem);
+  max-width: 14ch;
+}
+html[data-theme="C"] .hero__title em {
+  font-style: normal;
+  color: var(--copper);
+  font-weight: 700;
+}
+html[data-theme="C"] .hero__lead {
+  font-weight: 400;
+  font-size: clamp(1.0625rem, 1.4vw, 1.3125rem);
+  color: var(--ink-soft);
+}
+html[data-theme="C"] .hero__lead strong { color: var(--ink); font-weight: 600; }
+
+/* --- Section heads ----------------------------------------- */
+html[data-theme="C"] .section-head .lead { color: var(--ink-soft); }
+
+/* --- Ledger / stats / principles / audiences --------------- */
+html[data-theme="C"] .ledger,
+html[data-theme="C"] .stats {
+  background: var(--paper);
+  border-color: var(--hairline);
+}
+html[data-theme="C"] .ledger__cell:hover,
+html[data-theme="C"] .audience:hover { background: var(--paper-soft); }
+html[data-theme="C"] .ledger__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  font-size: clamp(1.125rem, 1.5vw, 1.3125rem);
+}
+html[data-theme="C"] .ledger__label::before { background: var(--copper); }
+
+html[data-theme="C"] .stats__value { font-family: var(--font-display); font-weight: 700; }
+html[data-theme="C"] .stats__num em { font-style: normal; color: var(--copper); }
+html[data-theme="C"] .stats__unit { font-weight: 400; }
+
+html[data-theme="C"] .principles__grid { background: var(--paper); }
+html[data-theme="C"] .principle { background: var(--paper); }
+html[data-theme="C"] .principle:hover { background: var(--paper-soft); }
+html[data-theme="C"] .principle::before { background: var(--copper); }
+html[data-theme="C"] .principle__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+}
+
+html[data-theme="C"] .audience { background: var(--paper); }
+html[data-theme="C"] .audience::before { background: var(--copper); }
+html[data-theme="C"] .audience h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+}
+
+/* --- Schematic --------------------------------------------- */
+html[data-theme="C"] .schematic { background: var(--paper); border-color: var(--hairline); }
+html[data-theme="C"] .schematic::before { display: none; }
+html[data-theme="C"] .schematic__mark { display: none; }
+html[data-theme="C"] .schematic__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+}
+html[data-theme="C"] .plane__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  font-size: clamp(1.25rem, 1.8vw, 1.625rem);
+}
+html[data-theme="C"] .plane__sub { font-family: var(--font-body); font-style: normal; font-weight: 500; color: var(--ink); }
+html[data-theme="C"] .plane__head::after { background: var(--copper); }
+
+/* --- Service rows ------------------------------------------ */
+html[data-theme="C"] .service-row__title h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  font-size: clamp(1.25rem, 1.9vw, 1.625rem);
+}
+html[data-theme="C"] .service-row::before { background: var(--copper); }
+html[data-theme="C"] .service-row__tags span {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.75rem;
+  border-radius: var(--radius);
+  background: var(--paper-soft);
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* --- Foundations / Principles bands ------------------------ */
+html[data-theme="C"] .foundations { background: var(--paper-soft); }
+html[data-theme="C"] .foundations::before { display: none; }
+html[data-theme="C"] .principles { background: var(--paper-soft); }
+
+/* --- Products --------------------------------------------- */
+html[data-theme="C"] .product { background: var(--paper); }
+html[data-theme="C"] .product:hover { background: var(--paper-soft); }
+html[data-theme="C"] .product--live::before { background: var(--copper); }
+html[data-theme="C"] .product__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+}
+html[data-theme="C"] .product__pill {
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+html[data-theme="C"] .product__pill--live { border-color: var(--copper); }
+
+/* --- Direction / footer ----------------------------------- */
+html[data-theme="C"] .direction__contact a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+}
+html[data-theme="C"] .footer .wordmark__text { font-family: var(--font-display); font-weight: 700; }
+html[data-theme="C"] .opening__pullquote {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+}
+html[data-theme="C"] .opening__pullquote em,
+html[data-theme="C"] .foundations__note em,
+html[data-theme="C"] .products__note em {
+  font-style: normal;
+  color: var(--copper);
+}
+html[data-theme="C"] .foundations__note,
+html[data-theme="C"] .products__note {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.014em;
+}
+
+/* =============================================================
+   Theme C — Dark mode
+   ============================================================= */
+html[data-theme="C"][data-mode="dark"] {
+  --paper:        #0F172A;
+  --paper-soft:   #1E293B;
+  --paper-deep:   #020617;
+  --hairline:     #1E293B;
+  --rule:         #334155;
+  --rule-strong:  #475569;
+
+  --ink:          #F1F5F9;
+  --ink-soft:     #CBD5E1;
+  --ink-mid:      #94A3B8;
+  --ink-faint:    #64748B;
+
+  --copper:       #60A5FA;
+  --copper-soft:  #93C5FD;
+  --copper-deep:  #2563EB;
+  --copper-wash:  rgba(96, 165, 250, 0.08);
+  --copper-hair:  rgba(96, 165, 250, 0.24);
+  --copper-glow:  rgba(96, 165, 250, 0.04);
+}
+html[data-theme="C"][data-mode="dark"] .nav {
+  background: rgba(15, 23, 42, 0.86);
+  border-bottom-color: var(--hairline);
+}
+html[data-theme="C"][data-mode="dark"] .nav.is-scrolled { background: rgba(15, 23, 42, 0.94); }
+html[data-theme="C"][data-mode="dark"] .hero__bg-grain {
+  background:
+    radial-gradient(900px 600px at 100% 0%, rgba(96, 165, 250, 0.10), transparent 60%);
+}
+html[data-theme="C"][data-mode="dark"] .hero__bg-grid {
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}

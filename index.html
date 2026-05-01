@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-theme="A" data-mode="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#F4EFE3">
 
   <title>Cartograpp — The cartography of the world&rsquo;s software</title>
@@ -22,12 +22,27 @@
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="canonical" href="https://www.cartograpp.com/">
 
+  <script>
+    (function(){
+      var d = document.documentElement;
+      d.classList.replace('no-js','js');
+      try {
+        var t = localStorage.getItem('cartograpp:theme');
+        var m = localStorage.getItem('cartograpp:mode');
+        if (t && /^[ABCD]$/.test(t)) d.setAttribute('data-theme', t);
+        if (m === 'dark' || m === 'light') d.setAttribute('data-mode', m);
+      } catch(e){}
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap">
 
   <link rel="stylesheet" href="/assets/css/styles.css">
-  <script>document.documentElement.classList.replace('no-js','js');</script>
+  <link rel="stylesheet" href="/assets/css/theme-b.css">
+  <link rel="stylesheet" href="/assets/css/theme-c.css">
+  <link rel="stylesheet" href="/assets/css/theme-d.css">
 </head>
 <body>
 
@@ -55,10 +70,74 @@
         <li><a href="#products">Products</a></li>
       </ul>
 
-      <span class="nav__status" aria-live="polite">
-        <span class="nav__status-dot" aria-hidden="true"></span>
-        In development · v0.2
-      </span>
+      <div class="nav__controls">
+        <div class="theme-picker" data-theme-picker>
+          <button class="theme-picker__trigger" type="button" id="theme-picker-trigger"
+                  aria-haspopup="listbox" aria-expanded="false" aria-controls="theme-picker-menu">
+            <span class="theme-picker__dot" aria-hidden="true"></span>
+            <span class="theme-picker__label">
+              <span class="theme-picker__label-letter">A</span>
+              <span class="theme-picker__label-name">Classic Carto</span>
+            </span>
+            <svg class="theme-picker__caret" viewBox="0 0 12 12" width="10" height="10"
+                 fill="none" stroke="currentColor" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="3 5 6 8 9 5"/>
+            </svg>
+          </button>
+          <ul class="theme-picker__menu" role="listbox" id="theme-picker-menu"
+              aria-labelledby="theme-picker-trigger" hidden>
+            <li class="theme-picker__option" role="option" data-theme="A" aria-selected="true" tabindex="-1">
+              <span class="theme-picker__option-letter">A</span>
+              <span class="theme-picker__option-text">
+                <span class="theme-picker__option-name">Classic Carto</span>
+                <span class="theme-picker__option-sub">Editorial · cartographer's paper</span>
+              </span>
+            </li>
+            <li class="theme-picker__option" role="option" data-theme="B" aria-selected="false" tabindex="-1">
+              <span class="theme-picker__option-letter">B</span>
+              <span class="theme-picker__option-text">
+                <span class="theme-picker__option-name">Aspirational Abstract</span>
+                <span class="theme-picker__option-sub">Humanist · soft gradients</span>
+              </span>
+            </li>
+            <li class="theme-picker__option" role="option" data-theme="C" aria-selected="false" tabindex="-1">
+              <span class="theme-picker__option-letter">C</span>
+              <span class="theme-picker__option-text">
+                <span class="theme-picker__option-name">Corporate Professional</span>
+                <span class="theme-picker__option-sub">Restrained · enterprise</span>
+              </span>
+            </li>
+            <li class="theme-picker__option" role="option" data-theme="D" aria-selected="false" tabindex="-1">
+              <span class="theme-picker__option-letter">D</span>
+              <span class="theme-picker__option-text">
+                <span class="theme-picker__option-name">Rompedor</span>
+                <span class="theme-picker__option-sub">Brutalist · experimental</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <button class="mode-toggle" type="button"
+                aria-label="Toggle dark mode" data-mode-toggle>
+          <svg class="mode-toggle__icon" viewBox="0 0 24 24" width="16" height="16"
+               fill="none" stroke="currentColor" stroke-width="1.6"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <g class="mode-toggle__sun-group">
+              <circle cx="12" cy="12" r="4"/>
+              <line x1="12" y1="2" x2="12" y2="5"/>
+              <line x1="12" y1="19" x2="12" y2="22"/>
+              <line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/>
+              <line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/>
+              <line x1="2" y1="12" x2="5" y2="12"/>
+              <line x1="19" y1="12" x2="22" y2="12"/>
+              <line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/>
+              <line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/>
+            </g>
+            <path class="mode-toggle__moon" d="M20.5 14.5A8 8 0 0 1 9.5 3.5 8 8 0 1 0 20.5 14.5z"/>
+          </svg>
+        </button>
+      </div>
     </div>
     <span class="nav__progress" aria-hidden="true"></span>
   </nav>

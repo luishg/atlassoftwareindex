@@ -11,6 +11,117 @@
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* -----------------------------------------------------------
+     Theme switcher (variant A/B/C/D + light/dark mode)
+     - Variant lives in <html data-theme>
+     - Mode lives in <html data-mode>
+     - Persisted to localStorage; init runs in <head> to avoid FOUC
+     --------------------------------------------------------- */
+  const root = document.documentElement;
+  const THEMES = {
+    A: 'Classic Carto',
+    B: 'Aspirational Abstract',
+    C: 'Corporate Professional',
+    D: 'Rompedor',
+  };
+
+  const picker = document.querySelector('[data-theme-picker]');
+  if (picker) {
+    const trigger = picker.querySelector('.theme-picker__trigger');
+    const menu = picker.querySelector('.theme-picker__menu');
+    const options = Array.from(picker.querySelectorAll('.theme-picker__option'));
+    const labelLetter = picker.querySelector('.theme-picker__label-letter');
+    const labelName = picker.querySelector('.theme-picker__label-name');
+
+    const renderActive = (theme) => {
+      if (labelLetter) labelLetter.textContent = theme;
+      if (labelName) labelName.textContent = THEMES[theme] || THEMES.A;
+      options.forEach(opt => {
+        const selected = opt.dataset.theme === theme;
+        opt.setAttribute('aria-selected', selected ? 'true' : 'false');
+      });
+    };
+
+    const setTheme = (theme) => {
+      if (!THEMES[theme]) return;
+      root.setAttribute('data-theme', theme);
+      try { localStorage.setItem('cartograpp:theme', theme); } catch(e) {}
+      renderActive(theme);
+    };
+
+    const openMenu = () => {
+      menu.hidden = false;
+      trigger.setAttribute('aria-expanded', 'true');
+    };
+    const closeMenu = () => {
+      menu.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+    };
+    const toggleMenu = () => {
+      if (menu.hidden) openMenu(); else closeMenu();
+    };
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        setTheme(opt.dataset.theme);
+        closeMenu();
+        trigger.focus();
+      });
+      opt.addEventListener('keydown', (e) => {
+        const idx = options.indexOf(opt);
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          options[(idx + 1) % options.length].focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          options[(idx - 1 + options.length) % options.length].focus();
+        } else if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setTheme(opt.dataset.theme);
+          closeMenu();
+          trigger.focus();
+        } else if (e.key === 'Escape') {
+          closeMenu();
+          trigger.focus();
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!picker.contains(e.target)) closeMenu();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.hidden) {
+        closeMenu();
+        trigger.focus();
+      }
+    });
+
+    // Initialize label from current attribute (set by inline head script)
+    renderActive(root.getAttribute('data-theme') || 'A');
+  }
+
+  // Mode toggle (light/dark)
+  const modeToggle = document.querySelector('[data-mode-toggle]');
+  if (modeToggle) {
+    const setMode = (mode) => {
+      root.setAttribute('data-mode', mode);
+      try { localStorage.setItem('cartograpp:mode', mode); } catch(e) {}
+      modeToggle.setAttribute('aria-label',
+        mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    };
+    modeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-mode') === 'dark' ? 'dark' : 'light';
+      setMode(current === 'dark' ? 'light' : 'dark');
+    });
+    setMode(root.getAttribute('data-mode') === 'dark' ? 'dark' : 'light');
+  }
+
+  /* -----------------------------------------------------------
      Nav: scrolled state + reading progress rail
      --------------------------------------------------------- */
   const nav = document.getElementById('nav');
